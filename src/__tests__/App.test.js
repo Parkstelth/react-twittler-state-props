@@ -372,7 +372,7 @@ describe('Tweets.js 트윗 전송 폼 테스트', () => {
     });
 
     test('새로 추가된 트윗이 최 상단에 위치하여야 합니다.', () => {
-      const { queryByText, container, queryAllByRole } = render(
+      const { queryByText, container, queryAllByRole,  } = render(
         <Tweets />
       );
 
@@ -393,6 +393,7 @@ describe('Tweets.js 트윗 전송 폼 테스트', () => {
 
       const selectedTweets = container.querySelectorAll('.tweet__message');
       expect(selectedTweets[0]).toBe(queryByText(msg));
+   
     });
   });
 });
