@@ -40,11 +40,11 @@
 import React from "react";
 import "./Tweet.css";
 
-const Tweet = ({ tweet }) => {
+const Tweet = ({ tweet , index }) => {
     const parsedDate = new Date(tweet.createdAt).toLocaleDateString("ko-kr");
 
     return (
-        <li key={tweet.id} className="tweet" id={tweet.id}>
+        <li key={index} className="tweet" id={tweet.id}>
             <div className="tweet__profile">
                 <img src={tweet.picture} />
             </div>
