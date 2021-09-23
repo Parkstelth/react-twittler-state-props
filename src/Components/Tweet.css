@@ -5,6 +5,10 @@
   border-bottom: 1px solid var(--main-border-color);
 }
 
+.far.fa-trash-alt{
+width: 10px;
+height: 10px;
+}
 .tweet:hover {
   background-color: var(--shade-color);
 }
@@ -21,6 +25,7 @@
 
 .tweet__content {
   flex: 1 0 0;
+  position: relative;
 }
 
 .tweet__userInfo {
@@ -65,6 +70,13 @@
   outline: none;
   box-shadow: 0 0 3px var(--button-color);
   background: var(--tweets-component-color);
+}
+
+.material-icons{
+  position: absolute;
+  right:0;
+  top:0;
+  cursor: pointer;
 }
 
 .tweet__message {

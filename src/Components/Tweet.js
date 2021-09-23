@@ -1,50 +1,18 @@
-// import React from 'react';
-// import './Tweet.css';
-
-// const Tweet = ( {tweet} ) => { //[{a}]
-//   return(
-  
-//     tweet.map(tweetEl=>{
-//       const parsedDate = new Date(tweetEl.createdAt).toLocaleDateString('ko-kr');
-//       return (
-//         <li key={tweetEl.id} className="tweet">
-//           <div className="tweet__profile">
-//             <img src={tweetEl.picture} />
-//           </div>
-//           <div className="tweet__content">
-//             <div className="tweet__userInfo">
-//               <div className="tweet__userInfo--wrapper">
-              
-//                 <span className="tweet__username">{tweetEl.username}</span>
-              
-//                 <span className="tweet__createdAt">{parsedDate}</span>
-//               </div>
-//             </div>
-//             <div className="tweet__message">
-//               {tweetEl.content}
-//             </div>
-//           </div>
-//         </li>
-//       );
-//     })
-    
-//   )
-
-
-
-  
-// };
-
-// export default Tweet;
-
 import React from "react";
 import "./Tweet.css";
 
-const Tweet = ({ tweet , index }) => {
+const Tweet = ({ tweet,tweets,test }) => {
     const parsedDate = new Date(tweet.createdAt).toLocaleDateString("ko-kr");
+  
+    const removeTweet = (event) =>{
+        const newel = tweets.filter(function(tweetel){
+            return tweetel.id!==tweet.id
+        })
+        test(newel)
+    }
 
     return (
-        <li key={index} className="tweet" id={tweet.id}>
+        <li className="tweet" id={tweet.id}>
             <div className="tweet__profile">
                 <img src={tweet.picture} />
             </div>
@@ -57,6 +25,9 @@ const Tweet = ({ tweet , index }) => {
                         <span className="tweet__createdAt">{parsedDate}</span>
                     </div>
                 </div>
+                <span className="material-icons"
+                onClick={removeTweet}
+                >delete_forever</span>
                 <div className="tweet__message">{tweet.content}</div>
             </div>
         </li>
